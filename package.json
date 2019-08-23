@@ -1,0 +1,24 @@
+{
+  "name": "three-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "gsap": "^2.1.3",
+    "three": "^0.107.0"
+  },
+  "scripts": {
+    "build": "./node_modules/webpack/bin/webpack.js",
+    "dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline"
+  },
+  "devDependencies": {
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.3.1",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
+  }
+}
