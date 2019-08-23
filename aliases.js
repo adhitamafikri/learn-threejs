@@ -6,5 +6,7 @@ module.exports = {
   lights: path.resolve(__dirname, 'src/lights'),
   animations: path.resolve(__dirname, 'src/animations'),
 
+  controls: path.resolve(__dirname, 'src/controls'),
+
   styles: path.resolve(__dirname, 'src/styles')
 }

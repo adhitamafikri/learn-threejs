@@ -8,7 +8,10 @@ import { create as createLine } from 'shapes/Line'
 import { create as createPointLight } from 'lights/Point'
 
 import { animationSingleton } from 'animations'
-import { rotatex, rotatey } from 'animations/rotation'
+import { rotatex, rotatey, rotatez } from 'animations/rotation'
+import { translatex, translatey } from 'animations/translation'
+
+import { getKeyCode } from 'controls/keyboard'
 
 function init() {
   const { scene, camera, renderer } = createScene()
@@ -29,20 +32,22 @@ function init() {
   camera.position.set(0, 0, 25)
   camera.lookAt(0, 0, 0)
 
-  const animationSet = [
-    rotatex(cube),
-    rotatey(cube),
-    rotatex(sphere),
-    rotatey(sphere),
-  ]
-
+  let keyCode = null
   const render = () => {
     requestAnimationFrame(render)
 
+    // animations
     rotatex(cube)
     rotatey(cube)
+    rotatez(cube)
     rotatex(sphere)
     rotatey(sphere)
+
+    // controls
+    if (getKeyCode() == 37) translatex(sphere, '-')
+    else if (getKeyCode() == 39) translatex(sphere)
+    else if (getKeyCode() == 38) translatey(sphere)
+    else if (getKeyCode() == 40) translatey(sphere, '-')
 
     renderer.render(scene, camera)
   }
