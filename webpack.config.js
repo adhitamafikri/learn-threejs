@@ -1,6 +1,8 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 
+const aliases = require('./aliases');
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -8,10 +10,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    alias: {
-      services: path.resolve(__dirname, 'src/services'),
-      styles: path.resolve(__dirname, 'src/styles')
-    }
+    alias: Object.assign({}, aliases)
   },
   module: {
     rules: [

@@ -1,11 +1,11 @@
 import 'styles/index.scss'
 
-import { create as createScene } from "services/scene"
-import { create as createCube } from "services/shapes/Cube"
-import { create as createSphere } from "services/shapes/Sphere"
-import { create as createLine } from "services/shapes/Line"
+import { create as createScene } from "scene"
+import { create as createCube } from "shapes/Cube"
+import { create as createSphere } from "shapes/Sphere"
+import { create as createLine } from "shapes/Line"
 
-import { create as createPointLight } from "services/lights/Point"
+import { create as createPointLight } from "lights/Point"
 
 function init() {
   const { scene, camera, renderer } = createScene()
@@ -15,7 +15,7 @@ function init() {
 
   const light = createPointLight()
 
-  cube.position.set(10, 0, 0)
+  cube.position.set(15, 0, 0)
   light.position.set(10, 0, 25)
 
   scene.add(cube)
