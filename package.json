@@ -8,13 +8,12 @@
     "three": "^0.107.0"
   },
   "scripts": {
-    "build": "./node_modules/webpack/bin/webpack.js",
-    "dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline"
+    "build": "npx webpack",
+    "dev": "npx webpack-dev-server --inline"
   },
   "devDependencies": {
     "css-loader": "^3.2.0",
     "html-webpack-plugin": "^3.2.0",
-    "node-sass": "^4.12.0",
     "sass-loader": "^7.3.1",
     "style-loader": "^1.0.0",
     "webpack": "^4.39.2",

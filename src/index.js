@@ -1,53 +1,44 @@
-import 'styles/index.scss'
+import 'styles/index.css'
+import KeyboardControl from 'controls/config/keyboard'
 
-import { create as createScene } from 'scene'
-import { create as createCube } from 'shapes/Cube'
-import { create as createSphere } from 'shapes/Sphere'
-import { create as createLine } from 'shapes/Line'
+import RedBall from 'instances/characters/RedBall'
 
-import { create as createPointLight } from 'lights/Point'
+import {
+  create as createScene
+} from 'scene'
 
-import { animationSingleton } from 'animations'
-import { rotatex, rotatey, rotatez } from 'animations/rotation'
-import { translatex, translatey } from 'animations/translation'
-
-import { getKeyCode } from 'controls/keyboard'
+import {
+  create as createPointLight
+} from 'lights/Point'
 
 function init() {
-  const { scene, camera, renderer } = createScene()
-  const cube = createCube()
-  const line = createLine()
-  const sphere = createSphere()
+  const {
+    scene,
+    camera,
+    renderer
+  } = createScene()
+
+  // Enable keyboard control
+  const KBControl = new KeyboardControl()
+  KBControl.init()
+
+  // Instantiating character
+  const iRedBall = new RedBall()
+  const playerRedBall = iRedBall.instantiate()
+  playerRedBall.position.set(0, 0, 0)
+  scene.add(playerRedBall)
 
   const light = createPointLight()
-
-  cube.position.set(15, 0, 0)
   light.position.set(10, 0, 25)
-
-  scene.add(cube)
-  scene.add(line)
-  scene.add(sphere)
   scene.add(light)
 
   camera.position.set(0, 0, 25)
   camera.lookAt(0, 0, 0)
 
-  let keyCode = null
   const render = () => {
     requestAnimationFrame(render)
 
-    // animations
-    rotatex(cube)
-    rotatey(cube)
-    rotatez(cube)
-    rotatex(sphere)
-    rotatey(sphere)
-
-    // controls
-    if (getKeyCode() == 37) translatex(sphere, '-')
-    else if (getKeyCode() == 39) translatex(sphere)
-    else if (getKeyCode() == 38) translatey(sphere)
-    else if (getKeyCode() == 40) translatey(sphere, '-')
+    iRedBall.control(KBControl.getKeyCode())
 
     renderer.render(scene, camera)
   }

@@ -5,7 +5,7 @@ import {
 } from 'three'
 
 /**
- * @return {Three.Mesh} sphere
+ * @return {THREE.Mesh} sphere
  */
 export function create() {
   const geometry = new SphereGeometry(5, 15, 15)

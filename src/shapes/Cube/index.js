@@ -5,7 +5,7 @@ import {
 } from "three"
 
 /**
- * @return {Three.Mesh} cube
+ * @return {THREE.Mesh} cube
  */
 export function create() {
   let geometry = new BoxGeometry(10, 5, 5)

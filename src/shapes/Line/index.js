@@ -6,7 +6,7 @@ import {
 } from 'three'
 
 /**
- * @return {Three.Line} line
+ * @return {THREE.Line} line
  */
 export function create() {
   const material = new LineBasicMaterial({ color: 0x0000ff })
