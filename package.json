@@ -9,8 +9,8 @@
     "three": "^0.107.0"
   },
   "scripts": {
-    "build": "npx webpack",
-    "dev": "npx webpack-dev-server --inline"
+    "build": "webpack --mode production",
+    "dev": "webpack-dev-server"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
